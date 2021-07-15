@@ -106,3 +106,7 @@ Once that command runs, you can type `heroku open` to get a browser to open up l
 ### Testing
 
 Making sure we can push from our own repo. BFA
+
+## Roll Call
+
+Frankie was here!
