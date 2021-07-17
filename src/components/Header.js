@@ -12,10 +12,7 @@ const Header = () => {
   return (
     <div className="header">
       <Link to="/">
-        <img
-          className="header_logo"
-          src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-        />
+        <img className="header_logo" alt="LOGO" src="" />
       </Link>
 
       <div className="header_search">

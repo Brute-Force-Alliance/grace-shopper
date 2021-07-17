@@ -8,12 +8,11 @@ const Home = () => {
       <div className="home_container">
         <img
           className="home_image"
-          src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
+          src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2Fb%2F5%2Fe%2F6068.jpg&f=1&nofb=1"
           alt=""
         />
         <div className="home_row">
           <Product
-          
             title="Sony X800H 75-inch TV: 4K Ultra HD Smart LED TV with HDR and Alexa Compatibility - 2020 Model"
             price={1648.0}
             image="https://m.media-amazon.com/images/I/7198DOeKMBL._AC_SL1077_.jpg"

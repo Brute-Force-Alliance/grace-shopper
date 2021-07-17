@@ -19,11 +19,12 @@ const Checkout = () => {
           <h2 className="checkout_title">Your shopping Basket</h2>
           {basket.map((item) => (
             <CheckoutProduct
-            id={item.id}
-            title={item.title}
-            image={item.image}
-            price={item.price}
-            rating={item.rating} />
+              id={item.id}
+              title={item.title}
+              image={item.image}
+              price={item.price}
+              rating={item.rating}
+            />
           ))}
           {/*BasketItem*/}
           {/*BasketItem*/}
@@ -34,7 +35,6 @@ const Checkout = () => {
       </div>
       <div className="checkout_right">
         <Subtotal />
-        <h2>Subtotal goes here</h2>
       </div>
     </div>
   );
