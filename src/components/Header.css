@@ -2,7 +2,7 @@
   height: 60px;
   display: flex;
   align-items: center;
-  background-color: #131921;
+  background-color: #282a2c;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -27,7 +27,7 @@
 .header_searchIcon {
   padding: 5px;
   height: 16.2px !important;
-  background-color: #cd9042;
+  background-color: #42b8cd;
 }
 
 .header_optionLineOne {
