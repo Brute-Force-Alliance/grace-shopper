@@ -32,7 +32,7 @@ Once you decide on that name, make sure to run `createdb` from your command line
 
 Finally you can run `npm run server:dev` to start the web server.
 
-In a second terminal navigate back to the local repo and run `npm run client:dev` to start the react server. 
+In a second terminal navigate back to the local repo and run `npm run client:dev` to start the react server.
 
 This is set up to run on a proxy, so that you can make calls back to your `api` without needing absolute paths. You can instead `axios.get('/api/posts')` or whatever without needing to know the root URL.
 
@@ -85,7 +85,6 @@ This creates a heroku project which will live at https://hopeful-project-name.he
 
 It will also create a postgres database for you, on the free tier.
 
-
 ### Deploying
 
 Once you've built the front-end you're ready to deploy, simply run `git push heroku master`. Note, your git has to be clean for this to work (which is why our two git commands live as part of getting ready to deploy, above).
@@ -102,7 +101,6 @@ Which will run `npm run db:build` on the heroku server.
 
 Once that command runs, you can type `heroku open` to get a browser to open up locally with your full-stack application running remotely.
 
-
 ### Testing
 
 Making sure we can push from our own repo. BFA
@@ -110,3 +108,7 @@ Making sure we can push from our own repo. BFA
 ## Roll Call
 
 Frankie was here! I'm still here baby!!!
+
+## Making sure it works
+
+Tavo is here, making sure this is working properly!
