@@ -13,6 +13,9 @@ const App = () => {
       <div className="App">
         <Header />
         <Switch>
+          <Route path="/login">
+            <h1>LOGIN</h1>
+          </Route>
           <Route path="/checkout">
             <Checkout />
           </Route>
