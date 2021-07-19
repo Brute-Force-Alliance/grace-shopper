@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <div className="header">
       <Link to="/">
-        <img className="header_logo" alt="LOGO" src="" />
+        <img className="header_logo" alt="LOGO" src="https://i.ibb.co/3YR06S2/BFA-logo.png" />
       </Link>
 
       <div className="header_search">
@@ -31,7 +31,7 @@ const Header = () => {
         </div>
         <div className="header_option">
           <span className="header_optionLineOne">Your</span>
-          <span className="header_optionLineTwo">Prime</span>
+          <span className="header_optionLineTwo">BFG</span>
         </div>
         <Link to="/checkout">
           <div className="header_optionBasket">

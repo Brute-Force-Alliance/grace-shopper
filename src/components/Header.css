@@ -13,13 +13,13 @@
   width: 100px;
   object-fit: contain;
   margin: 0 20px;
-  margin-top: 18px;
+  margin-top: 8px;
 }
 
 /*Centers the search box and search icon*/
 .header_search {
   display: flex;
-  flex: 1;
+  flex: 1 0;
   align-items: center;
   border-radius: 24px;
 }
@@ -27,7 +27,7 @@
 .header_searchIcon {
   padding: 5px;
   height: 16.2px !important;
-  background-color: #42b8cd;
+  background-color: #3C6E71;
 }
 
 .header_optionLineOne {
