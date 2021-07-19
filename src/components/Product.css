@@ -20,11 +20,12 @@
 }
 
 .product > button {
-  background: #f0c14b;
+  background: #3C6E71;
   border: 1px solid;
   margin-top: 10px;
-  border-color: #a88734 #9c7e31 #846a29;
-  color: black;
+  border-color: #D9D9D9 #3C6E71 #353535;
+  color: white;
+  padding: 4px;
 }
 
 .product_price {

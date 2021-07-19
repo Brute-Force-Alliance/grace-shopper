@@ -8,7 +8,7 @@ const Home = () => {
       <div className="home_container">
         <img
           className="home_image"
-          src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2Fb%2F5%2Fe%2F6068.jpg&f=1&nofb=1"
+          src="https://i.ibb.co/wzywrtV/Brute-Force-Banner.jpg"
           alt=""
         />
         <div className="home_row">
