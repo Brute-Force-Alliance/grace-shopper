@@ -26,7 +26,7 @@ const CheckoutProduct = ({ id, image, title, price, rating }) => {
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <p>⭐</p>
+              <p>🍌</p>
             ))}
         </div>
         <button onClick={removeFromBasket}>Remove from Basket</button>
