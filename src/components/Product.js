@@ -5,8 +5,6 @@ import { useStateValue } from "./StateProvider";
 // props-destructured get passed from Home.js in <Product /> to Product.js
 const Product = ({ id, title, image, price, rating }) => {
   const [{ basket }, dispatch] = useStateValue();
-  // Checks what's in the basket by destructuring state to {basket}
-  console.log("This is the basket >>>>>", basket);
 
   const addToBasket = () => {
     //dispatch the item into the data layer
