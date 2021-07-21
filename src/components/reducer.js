@@ -1,6 +1,7 @@
 // Initial state of basket, empty
 export const initialState = {
   basket: [],
+  user: null
 };
 
 // Selector, adds basket total using reduce
@@ -38,6 +39,12 @@ const reducer = (state, action) => {
         ...state,
         basket: newBasket,
       };
+
+      case "SET_USER":
+        return {
+          ...state,
+          user: action.user
+        }
 
     default:
       return state;
