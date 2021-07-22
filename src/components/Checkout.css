@@ -1,13 +1,9 @@
 .checkout {
   display: flex;
   padding: 20px;
+  justify-content: space-between;
   background-color: rgb(255, 255, 255);
   height: max-content;
-}
-
-.checkout_ad {
-  width: 100%;
-  margin-bottom: 10px;
 }
 
 .checkout_title {

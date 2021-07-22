@@ -13,11 +13,11 @@ const Checkout = () => {
         <img
           className="checkout_ad"
           alt=""
-          src=""//needs a landscape img or banner
+          src="" //needs a landscape img or banner
         />
         <div>
           <h3>Hello, {user?.email}</h3>
-          <h2 className="checkout_title">Your shopping Basket</h2>
+          <h2 className="checkout_title">Your Shopping Cart</h2>
           {basket.map((item) => (
             <CheckoutProduct
               id={item.id}
@@ -27,11 +27,6 @@ const Checkout = () => {
               rating={item.rating}
             />
           ))}
-          {/*BasketItem*/}
-          {/*BasketItem*/}
-          {/*BasketItem*/}
-          {/*BasketItem*/}
-          {/*BasketItem*/}
         </div>
       </div>
       <div className="checkout_right">

@@ -14,12 +14,16 @@ const Header = () => {
     if (user) {
       auth.signOut();
     }
-  }
-  
+  };
+
   return (
     <div className="header">
       <Link to="/">
-        <img className="header_logo" alt="LOGO" src="https://i.ibb.co/3YR06S2/BFA-logo.png" />
+        <img
+          className="header_logo"
+          alt="LOGO"
+          src="https://i.ibb.co/3YR06S2/BFA-logo.png"
+        />
       </Link>
 
       <div className="header_search">
@@ -31,10 +35,11 @@ const Header = () => {
         <Link to={!user && "/login"}>
           <div onClick={handleAuthentication} className="header_option">
             <span className="header_optionLineOne">Hello Guest</span>
-            <span className="header_optionLineTwo">{user ? 
-            'Sign Out' : 'Sign In'}</span>
-          </div>  
-        </Link>        
+            <span className="header_optionLineTwo">
+              {user ? "Sign Out" : "Sign In"}
+            </span>
+          </div>
+        </Link>
         <div className="header_option">
           <span className="header_optionLineOne">Returns</span>
           <span className="header_optionLineTwo">& Orders</span>
@@ -42,6 +47,10 @@ const Header = () => {
         <div className="header_option">
           <span className="header_optionLineOne">Your</span>
           <span className="header_optionLineTwo">BFA</span>
+        </div>
+        <div className="header_option">
+          <span className="header_optionLineOne">Browse</span>
+          <span className="header_optionLineTwo">Items</span>
         </div>
         <Link to="/checkout">
           <div className="header_optionBasket">
