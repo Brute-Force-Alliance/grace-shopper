@@ -13,50 +13,50 @@ const Home = () => {
         />
         <div className="home_row">
           <Product
-            title="Sony X800H 75-inch TV: 4K Ultra HD Smart LED TV with HDR and Alexa Compatibility - 2020 Model"
-            price={1648.0}
-            image="https://m.media-amazon.com/images/I/7198DOeKMBL._AC_SL1077_.jpg"
+            title="BruteForce Fullstack Collaboration Tee - White"
+            price={24.99}
+            image="https://i.ibb.co/8DqGXbJ/BFA-Shirt-3.png"
             rating={5}
           />
           <Product
-            title="Where the Red Fern Grows"
-            price={12.99}
-            image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.GsRYzXFPM-haqsdx_VEl8wAAAA%26pid%3DApi&f=1"
+            title="BFA Logo Tee - White"
+            price={24.99}
+            image="https://i.ibb.co/ssgtvDp/BFA-Shirt-4.png"
             rating={5}
           />
         </div>
         <div className="home_row">
           <Product
-            title="CyberpowerPC Gamer Master Gaming PC, AMD Ryzen 9 3900X 3.8GHz, AMD Radeon RX 5700 XT 8GB, 16GB DDR4, 1TB PCI-E NVMe SSD, WiFi Ready & Win 10 Home (GMA1398A, Black)"
-            price={1799.0}
-            image="https://m.media-amazon.com/images/I/71CiQtX1oTL._AC_SL1500_.jpg"
+            title="BFA Sock - Black"
+            price={9.99}
+            image="https://i.ibb.co/FXmB8b6/socks.png"
             rating={4}
           />
           <Product
-            title="Lenovo Legion 5 15 Gaming Laptop, 15.6 FHD (1920 x 1080) Display, AMD Ryzen 7 5800H Processor, 16GB DDR4 RAM, 512GB NVMe SSD, NVIDIA GeForce RTX 3050Ti, Windows 10H, 82JW0012US, Phantom Blue"
-            price={1049.99}
-            image="https://m.media-amazon.com/images/I/71fzx0pGY5L._AC_SL1500_.jpg"
+            title="Brute Beanie - Charcoal"
+            price={22.99}
+            image="https://i.ibb.co/P5Xzk9p/BFA-Beanie-6.png"
             rating={4}
           />
           <Product
-            title="Where the Red Fern Grows"
-            price={19.99}
-            image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.GsRYzXFPM-haqsdx_VEl8wAAAA%26pid%3DApi&f=1"
+            title="Brute Box Logo - Black"
+            price={24.99}
+            image="https://i.ibb.co/8bK3gBv/BFA-Beanie-9.png"
             rating={4}
           />
         </div>
 
         <div className="home_row">
           <Product
-            title="Where the Red Fern Grows"
-            price={19.99}
-            image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.GsRYzXFPM-haqsdx_VEl8wAAAA%26pid%3DApi&f=1"
+            title="React Force - Black"
+            price={24.99}
+            image="https://i.ibb.co/Y7pTZ6p/BFA-Shirt-1.png"
             rating={4}
           />
           <Product
-            title="Where the Red Fern Grows"
-            price={19.99}
-            image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.GsRYzXFPM-haqsdx_VEl8wAAAA%26pid%3DApi&f=1"
+            title="Loose Script Tee - White"
+            price={24.99}
+            image="https://i.ibb.co/Ry510hG/BFA-Beanie-11.png"
             rating={4}
           />
         </div>
