@@ -3,6 +3,7 @@ import Header from "./Header";
 import Home from "./Home";
 import Checkout from "./Checkout";
 import Login from "./Login";
+import Payment from "./Payment";
 import "./App.css";
 import "./index.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -17,22 +18,22 @@ const App = () => {
     //will only run once when app component loads
 
     auth.onAuthStateChanged((authUser) => {
-      console.log('THE USER IS >>>', authUser);
+      console.log("THE USER IS >>>", authUser);
 
-      if(authUser) {
+      if (authUser) {
         //the user just logged in / the user was logged in
         dispatch({
-          type: 'SET_USER',
-          user: authUser
-        })
+          type: "SET_USER",
+          user: authUser,
+        });
       } else {
         //the user is logged out
         dispatch({
-          type: 'SET_USER',
-          user: null
-        })
+          type: "SET_USER",
+          user: null,
+        });
       }
-    })
+    });
   }, []);
 
   return (
@@ -43,8 +44,12 @@ const App = () => {
             <Login />
           </Route>
           <Route path="/checkout">
-            <Header />  
+            <Header />
             <Checkout />
+          </Route>
+          <Route path="/payment">
+            <Header />
+            <Payment />
           </Route>
           <Route path="/">
             <Header />
