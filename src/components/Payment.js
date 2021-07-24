@@ -2,6 +2,7 @@ import React from "react";
 import "./Payment.css";
 import { useStateValue } from "./StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
+// Package imports should go above relative imports.
 import { Link } from "react-router-dom";
 
 const Payment = () => {
@@ -11,7 +12,7 @@ const Payment = () => {
     <div className="payment">
       <div className="payment_container">
         <h1>
-          Checkout 
+          Checkout
           (<Link to="/checkout">{basket?.length} items</Link>)
         </h1>
         <div className="payment_section">

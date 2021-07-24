@@ -1,3 +1,4 @@
+/* box-sizing is another common one to have globally. This feels a bit odd - also - have you looked at normalize.css? It will do a lot of stuff to make CSS more sensible. */
 * {
     margin: 0;
 }

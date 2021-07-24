@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 
+// FIXME: THESE SHOULD NOT BE HARDCODED IN A FRONTEND FILE. YOU MUST USE A .ENV FILE AND DOTENV OR SOMETHING TO HIDE/OBFUSCATE THESE VALUES.
 const firebaseConfig = {
   apiKey: "AIzaSyAB2mpzMx_wgINfotpuQ6cYQzynslLVgcM",
   authDomain: "grace-shopper-6d1e0.firebaseapp.com",

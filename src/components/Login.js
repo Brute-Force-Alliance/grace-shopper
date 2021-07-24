@@ -12,6 +12,7 @@ function Login() {
     e.preventDefault();
 
     // firebase login logic
+    // Wouldnt you want to set the logged in user to your state store?
     auth.signInWithEmailAndPassword(email, password)
     .then(auth => {
       history.push('/')
@@ -37,7 +38,7 @@ function Login() {
   return (
     <div className="login">
       <Link to='/'>
-        <img 
+        <img
         className="login__logo"
         src="https://i.ibb.co/3YR06S2/BFA-logo.png" />
       </Link>
