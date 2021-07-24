@@ -1,13 +1,14 @@
 // code to build and initialize DB goes here
 const {
   client
-  // other db methods 
+  // other db methods
 } = require('./index');
 
 async function buildTables() {
   try {
     client.connect();
 
+    // 😢 It'd be nice to see this today.
     // drop tables in correct order
 
     // build tables in correct order

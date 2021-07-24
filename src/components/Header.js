@@ -10,6 +10,7 @@ const Header = () => {
   // Destructure state to {basket}
   const [{ basket, user }, dispatch] = useStateValue();
 
+  // Weird name for a function that only ever logs you out.
   const handleAuthentication = () => {
     if (user) {
       auth.signOut();

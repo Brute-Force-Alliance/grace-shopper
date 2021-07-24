@@ -2,6 +2,7 @@ import React from "react";
 import "./Home.css";
 import Product from "./Product";
 
+// Its really icky that these products are hard coded. Shouldnt these be in firebase or your own database?
 const Home = () => {
   return (
     <div className="home">

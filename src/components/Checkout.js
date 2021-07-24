@@ -17,8 +17,10 @@ const Checkout = () => {
           src="" //needs a landscape img or banner
         />
         <div>
+          {/* Wow - look at y'all with optional chaining! */}
           <h3>Hello, {user?.email}</h3>
           <h2 className="checkout_title">Your Shopping Cart</h2>
+          {/* Maybe I'm missing something - but isn't there a non-insignificant chance that basket is undefined? */}
           {basket.map((item) => (
             <CheckoutProduct
               id={item.id}

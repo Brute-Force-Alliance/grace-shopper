@@ -4,6 +4,7 @@ import Home from "./Home";
 import Checkout from "./Checkout";
 import Login from "./Login";
 import Payment from "./Payment";
+// Move CSS imports to top of file.
 import "./App.css";
 import "./index.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -12,6 +13,7 @@ import { useStateValue } from "./StateProvider";
 
 // <Header /> outside the <Switch> tags renders on all components
 const App = () => {
+  // Where did you learn/see this? Its an interesting pattern. Should probably be [state, dispatch].
   const [{}, dispatch] = useStateValue();
 
   useEffect(() => {
@@ -36,6 +38,7 @@ const App = () => {
     });
   }, []);
 
+  // Might want to switch these paths to exact - can get into weird states of being without it.
   return (
     <Router>
       <div className="App">
