@@ -17,6 +17,8 @@
   "dependencies": {
     "@material-ui/core": "^4.12.1",
     "@material-ui/icons": "^4.11.2",
+    "@stripe/react-stripe-js": "^1.4.1",
+    "@stripe/stripe-js": "^1.16.0",
     "axios": "^0.21.1",
     "express": "^4.17.1",
     "firebase": "^8.7.1",
@@ -30,6 +32,7 @@
     "react-scripts": "^3.4.1"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "nodemon": "^2.0.4"
   },
   "proxy": "http://localhost:5000",

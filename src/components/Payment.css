@@ -26,6 +26,14 @@
 }
 
 .payment_address,
-.payment_items {
+.payment_items,
+.payment_details {
   flex: 0.8;
+}
+
+.payment_details {
+  flex-direction: column;
+  justify-content: center;
+  max-width: 50%;
+  margin-left: 30px;
 }

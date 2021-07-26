@@ -1,18 +1,22 @@
 import firebase from 'firebase';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAB2mpzMx_wgINfotpuQ6cYQzynslLVgcM",
-  authDomain: "grace-shopper-6d1e0.firebaseapp.com",
-  projectId: "grace-shopper-6d1e0",
-  storageBucket: "grace-shopper-6d1e0.appspot.com",
-  messagingSenderId: "936617246771",
-  appId: "1:936617246771:web:e2cf54be5463b51c87a346",
-  measurementId: "G-YWE2VEVBXZ"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 //intitialize the database
 const db = firebaseApp.firestore();
+
+// db test
+db.settings({ timestampsInSnaphots: true });
 //variable to handle login
 const auth = firebase.auth();
 
