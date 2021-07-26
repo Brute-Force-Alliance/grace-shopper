@@ -9,6 +9,10 @@ import "./index.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { auth } from "../firebase";
 import { useStateValue } from "./StateProvider";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+const promise = loadStripe('pk_test_51JGmgNC9dXaIWjJJDXxn8PfbjurdgfyrFYnOLfVgs5sPSSTEfJmummsXJp8lxLzOxnOpV9PXHk6FWU43mS3Srl7Z00IhriqKOO');
 
 // <Header /> outside the <Switch> tags renders on all components
 const App = () => {
@@ -49,7 +53,9 @@ const App = () => {
           </Route>
           <Route path="/payment">
             <Header />
-            <Payment />
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
           </Route>
           <Route path="/">
             <Header />
