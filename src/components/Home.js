@@ -1,32 +1,31 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
 import Product from "./Product";
-import { db } from '../firebase';
+import { db } from "../firebase";
 
 // Custom Hook to create subscription to Firestore
 function useProducts() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    db.collection('test-products')
+    db.collection("test-products")
       .get()
-      .then(snapshot => {
-        const data = snapshot.docs.map(doc => ({
+      .then((snapshot) => {
+        const data = snapshot.docs.map((doc) => ({
           id: doc.id,
-          ...doc.data()
-        }))
+          ...doc.data(),
+        }));
 
         setProducts(data);
-      })
-  },[])
-  
-  return products
-}
+      });
+  }, []);
 
+  return products;
+}
 
 const Home = () => {
   const products = useProducts();
-  
+
   return (
     <div className="home">
       <div className="home_container">
@@ -36,51 +35,51 @@ const Home = () => {
           alt=""
         />
         <div className="home_row">
-          {
-            products.map(product => {
-              return (
-                <Product 
-                  key={product.id}
-                  title={product.name}
-                  image={product.imageUrl}
-                  price={product.price}
-                  rating={5} />
-              )
-            })
-          }
+          {products.map((product) => {
+            return (
+              <Product
+                {...product}
+                // key={product.id}
+                // title={product.name}
+                // image={product.imageUrl}
+                // price={product.price}
+                // rating={5}
+              />
+            );
+          })}
         </div>
         <div className="home_row">
           <Product
-            title="BFA Sock - Black"
+            name="BFA Sock - Black"
             price={9.99}
-            image="https://i.ibb.co/FXmB8b6/socks.png"
+            imageUrl="https://i.ibb.co/FXmB8b6/socks.png"
             rating={4}
           />
           <Product
-            title="Brute Beanie - Charcoal"
+            name="Brute Beanie - Charcoal"
             price={22.99}
-            image="https://i.ibb.co/P5Xzk9p/BFA-Beanie-6.png"
+            imageUrl="https://i.ibb.co/P5Xzk9p/BFA-Beanie-6.png"
             rating={4}
           />
           <Product
-            title="Brute Box Logo - Black"
+            name="Brute Box Logo - Black"
             price={24.99}
-            image="https://i.ibb.co/8bK3gBv/BFA-Beanie-9.png"
+            imageUrl="https://i.ibb.co/8bK3gBv/BFA-Beanie-9.png"
             rating={4}
           />
         </div>
 
         <div className="home_row">
           <Product
-            title="React Force - Black"
+            name="React Force - Black"
             price={24.99}
-            image="https://i.ibb.co/Y7pTZ6p/BFA-Shirt-1.png"
+            imageUrl="https://i.ibb.co/Y7pTZ6p/BFA-Shirt-1.png"
             rating={4}
           />
           <Product
-            title="Loose Script Tee - White"
+            name="Loose Script Tee - White"
             price={24.99}
-            image="https://i.ibb.co/Ry510hG/BFA-Beanie-11.png"
+            imageUrl="https://i.ibb.co/Ry510hG/BFA-Beanie-11.png"
             rating={4}
           />
         </div>
