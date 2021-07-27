@@ -60,8 +60,18 @@ const Header = () => {
           </div>
         )}
         <div className="header_option">
-          <span className="header_optionLineOne">Browse</span>
-          <span className="header_optionLineTwo">Items</span>
+          {/* <span className="header_optionLineOne">Browse</span>
+          <span className="header_optionLineTwo">Items</span> */}
+          <ul>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">All Items</a>
+              <div class="dropdown-content">
+                <a href="#">Shirts</a>
+                <a href="#">Shorts/Pants</a>
+                <a href="#">Accessories</a>
+              </div>
+            </li>
+          </ul>
         </div>
         <Link to="/checkout">
           <div className="header_optionBasket">
