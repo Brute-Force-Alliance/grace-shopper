@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { Link, useHistory } from 'react-router-dom';
-import { auth } from '../firebase';
+import { auth, db } from '../firebase';
 
 function Login() {
   const history = useHistory();
@@ -26,7 +26,10 @@ function Login() {
     auth.createUserWithEmailAndPassword(email, password)
     .then((auth) => {
       //successfully creates user with an email and password
-      console.log(auth);
+      console.log('user created id', auth.user.uid);
+      return db.collection('users').doc(auth.user.uid)
+      
+    }).then(() => {
       if (auth) {
         history.push('/')
       }
