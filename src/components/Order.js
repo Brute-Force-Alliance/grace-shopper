@@ -17,7 +17,7 @@ function Order({ order }) {
                 <CheckoutProduct
                     id={item.id}
                     title={item.title}
-                    image={item.image}
+                    image={item.imageUrl}
                     price={item.price}
                     rating={item.rating}
                     hidebutton

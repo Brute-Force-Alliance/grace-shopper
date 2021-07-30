@@ -15,6 +15,7 @@ function Login() {
     auth.signInWithEmailAndPassword(email, password)
     .then(auth => {
       history.push('/')
+      console.log('logged in user -> ', auth.user.uid)
     })
     .catch(error => alert(error.message))
   }
@@ -27,7 +28,14 @@ function Login() {
     .then((auth) => {
       //successfully creates user with an email and password
       console.log('user created id', auth.user.uid);
-      return db.collection('users').doc(auth.user.uid)
+      console.log('user created email', auth.user.email);
+      const collection = db.collection('users');
+      const userId = auth.user.uid;
+
+      collection.doc(userId).set({
+        email: auth.user.email,
+        uid: userId
+      })      
       
     }).then(() => {
       if (auth) {

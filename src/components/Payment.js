@@ -49,15 +49,30 @@ const Payment = () => {
     }).then(({ paymentIntent }) => {
       // payment confirmation
 
-      db.collection('users')
-        .doc(user?.uid)
-        .collection('orders')
-        .doc(paymentIntent.id)
-        .set({
-          basket: basket,
-          amount: paymentIntent.amount,
-          created: paymentIntent.created,
-        })
+      const newCollection = db.collection('users').doc(user?.uid)
+            .collection('orders')
+
+        
+      console.log('basket: ', basket);
+      console.log('paymentIntent: ', paymentIntent);
+      console.log('newCollection', newCollection);
+
+      newCollection.doc(paymentIntent.id)
+            .set({
+              basket: basket,
+              // amount: paymentIntent.amount,
+              // created: paymentIntent.created
+            })
+
+      // db.collection('users')
+      //   .doc(user?.uid)
+      //   .collection('orders')
+      //   .doc(paymentIntent.id)
+      //   .set({
+      //     basket: basket,
+      //     amount: paymentIntent.amount,
+      //     created: paymentIntent.created,
+      //   })
 
       setSucceeded(true);
       setError(null);
