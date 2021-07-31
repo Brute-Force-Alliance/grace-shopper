@@ -1,5 +1,5 @@
-import React from "react";
 import "./Product.css";
+import React from "react";
 import { useStateValue } from "./StateProvider";
 
 // props-destructured get passed from Home.js in <Product /> to Product.js

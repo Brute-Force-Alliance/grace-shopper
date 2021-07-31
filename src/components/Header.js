@@ -1,5 +1,5 @@
-import React from "react";
 import "./Header.css";
+import React from "react";
 import SearchIcon from "@material-ui/icons/Search";
 // import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -11,7 +11,7 @@ const Header = () => {
   // Destructure state to {basket}
   const [{ basket, user }, dispatch] = useStateValue();
 
-  const handleAuthentication = () => {
+  const handleSignOut = () => {
     if (user) {
       auth.signOut();
     }
@@ -34,7 +34,7 @@ const Header = () => {
 
       <div className="header_nav">
         <Link to={!user && "/login"}>
-          <div onClick={handleAuthentication} className="header_option">
+          <div onClick={handleSignOut} className="header_option">
             <span className="header_optionLineOne">
               Hello {!user ? "Guest" : user.email}
             </span>

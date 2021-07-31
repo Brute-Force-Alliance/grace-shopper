@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
 import "./Payment.css";
+
+import React, { useState, useEffect } from "react";
+import CurrencyFormat from "react-currency-format";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { Link, useHistory } from "react-router-dom";
+
 import { useStateValue } from "./StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
-import { Link, useHistory } from "react-router-dom";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from "./reducer";
 import axios from "../axios";
 import { db } from "../firebase";
@@ -48,31 +50,22 @@ const Payment = () => {
       }
     }).then(({ paymentIntent }) => {
       // payment confirmation
+      
+      
+      const orders = db.collection('users')
+        .doc(user?.uid)
+        .collection('orders')
 
-      const newCollection = db.collection('users').doc(user?.uid)
-            .collection('orders')
+        orders.doc(paymentIntent.id)
+        .set({
+            basket: basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+          })
 
-        
       console.log('basket: ', basket);
       console.log('paymentIntent: ', paymentIntent);
-      console.log('newCollection', newCollection);
-
-      newCollection.doc(paymentIntent.id)
-            .set({
-              basket: basket,
-              // amount: paymentIntent.amount,
-              // created: paymentIntent.created
-            })
-
-      // db.collection('users')
-      //   .doc(user?.uid)
-      //   .collection('orders')
-      //   .doc(paymentIntent.id)
-      //   .set({
-      //     basket: basket,
-      //     amount: paymentIntent.amount,
-      //     created: paymentIntent.created,
-      //   })
+      console.log('newCollection: ', orders);
 
       setSucceeded(true);
       setError(null);

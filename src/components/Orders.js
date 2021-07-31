@@ -1,7 +1,7 @@
+import './Orders.css';
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import firebase from 'firebase';
-import './Orders.css';
 import { useStateValue } from './StateProvider';
 import Order from './Order';
 
@@ -12,6 +12,8 @@ function Orders() {
     useEffect(() => {
 /*From Firestore, need to access users, then specific user id, then the user's orders
 sort orders by most recent, then map thru orders by id and data*/
+        
+        
         if(user) {
             db.collection('users')
                 .doc(user?.uid)
