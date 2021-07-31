@@ -1,5 +1,5 @@
-import React from "react";
 import "./Header.css";
+import React from "react";
 import SearchIcon from "@material-ui/icons/Search";
 // import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -11,7 +11,7 @@ const Header = () => {
   // Destructure state to {basket}
   const [{ basket, user }, dispatch] = useStateValue();
 
-  const handleAuthentication = () => {
+  const handleSignOut = () => {
     if (user) {
       auth.signOut();
     }
@@ -34,7 +34,7 @@ const Header = () => {
 
       <div className="header_nav">
         <Link to={!user && "/login"}>
-          <div onClick={handleAuthentication} className="header_option">
+          <div onClick={handleSignOut} className="header_option">
             <span className="header_optionLineOne">
               Hello {!user ? "Guest" : user.email}
             </span>
@@ -43,6 +43,8 @@ const Header = () => {
             </span>
           </div>
         </Link>
+
+        <Link to='/orders'>
         {!user ? (
           ``
         ) : (
@@ -50,7 +52,18 @@ const Header = () => {
             <span className="header_optionLineOne">Returns</span>
             <span className="header_optionLineTwo">& Orders</span>
           </div>
-        )}
+          )}
+        </Link>
+
+        {/* {!user ? (
+          ``
+        ) : (
+          <div className="header_option">
+            <span className="header_optionLineOne">Returns</span>
+            <span className="header_optionLineTwo">& Orders</span>
+          </div>
+        )} */}
+
         {!user ? (
           ``
         ) : (
@@ -63,9 +76,9 @@ const Header = () => {
           {/* <span className="header_optionLineOne">Browse</span>
           <span className="header_optionLineTwo">Items</span> */}
           <ul>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">All Items</a>
-              <div class="dropdown-content">
+            <li className="dropdown">
+              <a href="javascript:void(0)" className="dropbtn">All Items</a>
+              <div className="dropdown-content">
                 <a href="#">Shirts</a>
                 <a href="#">Shorts/Pants</a>
                 <a href="#">Accessories</a>

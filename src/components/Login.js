@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import './Login.css';
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { auth } from '../firebase';
+import { auth, db } from '../firebase';
 
 function Login() {
   const history = useHistory();
@@ -15,6 +15,7 @@ function Login() {
     auth.signInWithEmailAndPassword(email, password)
     .then(auth => {
       history.push('/')
+      console.log('logged in user -> ', auth.user.uid)
     })
     .catch(error => alert(error.message))
   }
@@ -26,7 +27,17 @@ function Login() {
     auth.createUserWithEmailAndPassword(email, password)
     .then((auth) => {
       //successfully creates user with an email and password
-      console.log(auth);
+      console.log('user created id', auth.user.uid);
+      console.log('user created email', auth.user.email);
+      const collection = db.collection('users');
+      const userId = auth.user.uid;
+
+      collection.doc(userId).set({
+        email: auth.user.email,
+        uid: userId
+      })      
+      
+    }).then(() => {
       if (auth) {
         history.push('/')
       }

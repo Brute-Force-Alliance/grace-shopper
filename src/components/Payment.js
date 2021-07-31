@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
 import "./Payment.css";
+
+import React, { useState, useEffect } from "react";
+import CurrencyFormat from "react-currency-format";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { Link, useHistory } from "react-router-dom";
+
 import { useStateValue } from "./StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
-import { Link, useHistory } from "react-router-dom";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from "./reducer";
 import axios from "../axios";
+import { db } from "../firebase";
 
 const Payment = () => {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -35,7 +38,6 @@ const Payment = () => {
     getClientSecret();
   }, [basket])
 
-
   const handleSubmit = async e => {
     // Stripe handling
     e.preventDefault();
@@ -48,10 +50,33 @@ const Payment = () => {
       }
     }).then(({ paymentIntent }) => {
       // payment confirmation
+      
+      console.log('paymentIntent id before: ', paymentIntent.id);
+      console.log('paymentIntent amount before: ', paymentIntent.amount);
+      console.log('paymentIntent created before: ', paymentIntent.created);
+      console.log('user uid: ', user.uid)
+      console.log('basket: ', basket);
+      
+      db.collection('users')
+        .doc(user?.uid)
+        .collection('orders')
+        .doc(paymentIntent.id)
+        .set({
+            basket: basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+          })
+
+      console.log('paymentIntent id after: ', paymentIntent.id);
+      // console.log('newCollection: ', order);
 
       setSucceeded(true);
       setError(null);
       setProcessing(false);
+
+      dispatch({
+        type: 'EMPTY_BASKET'
+      })
 
       history.replace('/orders'); //Send to Orders page after
     })
@@ -88,6 +113,7 @@ const Payment = () => {
           <div className="payment_items">
             {basket.map((item) => (
               <CheckoutProduct
+                key={item.id}
                 id={item.id}
                 title={item.title}
                 image={item.image}
