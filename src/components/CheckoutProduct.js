@@ -4,7 +4,8 @@ import React from "react";
 
 import { StateProvider, useStateValue } from "./StateProvider";
 
-const CheckoutProduct = ({ id, image, title, price, rating, hidebutton }) => {
+const CheckoutProduct = (props) => {
+  const { id, image, title, price, rating, hidebutton } = props;
   const [{ basket }, dispatch] = useStateValue();
 
   // Removes item from basket
@@ -28,7 +29,7 @@ const CheckoutProduct = ({ id, image, title, price, rating, hidebutton }) => {
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <p>🍌</p>
+              <p key={i}>🍌</p>
             ))}
         </div>
         {!hidebutton && (

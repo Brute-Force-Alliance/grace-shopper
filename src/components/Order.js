@@ -4,7 +4,10 @@ import moment from 'moment';
 import CheckoutProduct from './CheckoutProduct';
 import CurrencyFormat from 'react-currency-format';
 
+
+
 function Order({ order }) {
+    console.log(order);
     return (
         <div className='order'>
             <h2>Order</h2>
@@ -12,12 +15,13 @@ function Order({ order }) {
             <p className='order_id'>
                 <small>{order.id}</small>
             </p>
-            {order.data.basket?.map(item => (
+            {Object.values(order.data.basket).map(item => (
     //may need to update these names to align with CheckoutProduct
                 <CheckoutProduct
+                    key={item.id}
                     id={item.id}
                     title={item.title}
-                    image={item.imageUrl}
+                    image={item.image}
                     price={item.price}
                     rating={item.rating}
                     hidebutton

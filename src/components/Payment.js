@@ -51,21 +51,24 @@ const Payment = () => {
     }).then(({ paymentIntent }) => {
       // payment confirmation
       
+      console.log('paymentIntent id before: ', paymentIntent.id);
+      console.log('paymentIntent amount before: ', paymentIntent.amount);
+      console.log('paymentIntent created before: ', paymentIntent.created);
+      console.log('user uid: ', user.uid)
+      console.log('basket: ', basket);
       
-      const orders = db.collection('users')
+      db.collection('users')
         .doc(user?.uid)
         .collection('orders')
-
-        orders.doc(paymentIntent.id)
+        .doc(paymentIntent.id)
         .set({
             basket: basket,
             amount: paymentIntent.amount,
             created: paymentIntent.created,
           })
 
-      console.log('basket: ', basket);
-      console.log('paymentIntent: ', paymentIntent);
-      console.log('newCollection: ', orders);
+      console.log('paymentIntent id after: ', paymentIntent.id);
+      // console.log('newCollection: ', order);
 
       setSucceeded(true);
       setError(null);
@@ -110,6 +113,7 @@ const Payment = () => {
           <div className="payment_items">
             {basket.map((item) => (
               <CheckoutProduct
+                key={item.id}
                 id={item.id}
                 title={item.title}
                 image={item.image}
