@@ -4,7 +4,7 @@ import { useStateValue } from "./StateProvider";
 
 // props-destructured get passed from Home.js in <Product /> to Product.js
 const Product = (item) => {
-  const { id, name, imageUrl, price, rating } = item;
+  const { id, title, imageUrl, price, rating } = item;
   const [{ basket }, dispatch] = useStateValue();
 
   const addToBasket = () => {
@@ -13,7 +13,7 @@ const Product = (item) => {
       type: "ADD_TO_BASKET",
       item: {
         id: id,
-        title: name,
+        title: title,
         image: imageUrl,
         price: price,
         rating: rating,
@@ -24,7 +24,7 @@ const Product = (item) => {
   return (
     <div className="product">
       <div className="product_info">
-        <p>{name}</p>
+        <p>{title}</p>
         <p className="product_price">
           <small>$</small>
           <strong>{price}</strong>

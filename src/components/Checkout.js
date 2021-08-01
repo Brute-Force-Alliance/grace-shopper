@@ -1,7 +1,7 @@
 import "./Checkout.css";
 
 import React from "react";
-import FlipMove from "react-flip-move";
+// import FlipMove from "react-flip-move"; Will review to add later, animation for removing items from cart
 
 import CheckoutProduct from "./CheckoutProduct";
 import { useStateValue } from "./StateProvider";
