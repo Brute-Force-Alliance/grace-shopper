@@ -7,7 +7,8 @@
   padding: 20px;
   width: 100%;
   max-height: 400px;
-  min-width: 100px;
+  max-width: 200px;
+  min-width: 150px;
   background-color: white;
   z-index: 1;
   border-radius: 5px;
@@ -32,6 +33,10 @@
 .product > button:hover {
   background: #284b63;
   border-color: #d9d9d9 #3c6e71 #353535;
+}
+
+button:active {
+  transform: scale(0.90);
 }
 
 .product_price {

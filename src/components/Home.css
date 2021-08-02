@@ -10,6 +10,9 @@
 
 .home_row {
   display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
   z-index: 1;
   margin-left: 5px;
   margin-right: 5px;

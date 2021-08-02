@@ -12,10 +12,15 @@ import Checkout from "./Checkout";
 import Login from "./Login";
 import Payment from "./Payment";
 import Orders from "./Orders";
+import Shirts from "./Shirts";
+import Pants from "./Pants";
 import { auth } from "../firebase";
 import { useStateValue } from "./StateProvider";
+import Accessories from "./Accessories";
 
-const promise = loadStripe('pk_test_51JGmgNC9dXaIWjJJDXxn8PfbjurdgfyrFYnOLfVgs5sPSSTEfJmummsXJp8lxLzOxnOpV9PXHk6FWU43mS3Srl7Z00IhriqKOO');
+const promise = loadStripe(
+  "pk_test_51JGmgNC9dXaIWjJJDXxn8PfbjurdgfyrFYnOLfVgs5sPSSTEfJmummsXJp8lxLzOxnOpV9PXHk6FWU43mS3Srl7Z00IhriqKOO"
+);
 
 // <Header /> outside the <Switch> tags renders on all components
 const App = () => {
@@ -47,7 +52,7 @@ const App = () => {
     <Router>
       <div className="App">
         <Switch>
-        <Route path="/orders" exact>
+          <Route path="/orders" exact>
             <Header />
             <Orders />
           </Route>
@@ -63,6 +68,18 @@ const App = () => {
             <Elements stripe={promise}>
               <Payment />
             </Elements>
+          </Route>
+          <Route path="/shirts" exact>
+            <Header />
+            <Shirts />
+          </Route>
+          <Route path="/pants" exact>
+            <Header />
+            <Pants />
+          </Route>
+          <Route path="/accessories" exact>
+            <Header />
+            <Accessories />
           </Route>
           <Route path="/" exact>
             <Header />

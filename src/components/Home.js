@@ -4,11 +4,11 @@ import Product from "./Product";
 import { db } from "../firebase";
 
 // Custom Hook to create subscription to Firestore
-function useProducts() {
+const useProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    db.collection("test-products")
+    db.collection("products")
       .get()
       .then((snapshot) => {
         const data = snapshot.docs.map((doc) => ({
@@ -21,7 +21,7 @@ function useProducts() {
   }, []);
 
   return products;
-}
+};
 
 const Home = () => {
   const products = useProducts();
@@ -48,7 +48,7 @@ const Home = () => {
             );
           })}
         </div>
-        <div className="home_row">
+        {/* <div className="home_row">
           <Product
             name="BFA Sock - Black"
             price={9.99}
@@ -82,7 +82,7 @@ const Home = () => {
             imageUrl="https://i.ibb.co/Ry510hG/BFA-Beanie-11.png"
             rating={4}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

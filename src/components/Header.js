@@ -1,8 +1,6 @@
 import "./Header.css";
 import React from "react";
-import SearchIcon from "@material-ui/icons/Search";
-// import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { Link } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 import { auth } from "../firebase";
@@ -27,11 +25,6 @@ const Header = () => {
         />
       </Link>
 
-      <div className="header_search">
-        <input className="header_searchInput" type="text" />
-        <SearchIcon className="header_searchIcon" />
-      </div>
-
       <div className="header_nav">
         <Link to={!user && "/login"}>
           <div onClick={handleSignOut} className="header_option">
@@ -44,14 +37,14 @@ const Header = () => {
           </div>
         </Link>
 
-        <Link to='/orders'>
-        {!user ? (
-          ``
-        ) : (
-          <div className="header_option">
-            <span className="header_optionLineOne">Returns</span>
-            <span className="header_optionLineTwo">& Orders</span>
-          </div>
+        <Link to="/orders">
+          {!user ? (
+            ``
+          ) : (
+            <div className="header_option">
+              <span className="header_optionLineOne">Returns</span>
+              <span className="header_optionLineTwo">& Orders</span>
+            </div>
           )}
         </Link>
 
@@ -77,11 +70,13 @@ const Header = () => {
           <span className="header_optionLineTwo">Items</span> */}
           <ul>
             <li className="dropdown">
-              <a href="javascript:void(0)" className="dropbtn">All Items</a>
+              <a href="javascript:void(0)" className="dropbtn">
+                All Items
+              </a>
               <div className="dropdown-content">
-                <a href="#">Shirts</a>
-                <a href="#">Shorts/Pants</a>
-                <a href="#">Accessories</a>
+                <a href="/shirts">Shirts</a>
+                <a href="/pants">Pants</a>
+                <a href="/accessories">Accessories</a>
               </div>
             </li>
           </ul>
