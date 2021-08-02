@@ -5,22 +5,39 @@ import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import { Admin, Resource } from 'react-admin';
+import {
+  FirebaseAuthProvider,
+  FirebaseDataProvider,
+  FirebaseRealTimeSaga
+} from 'react-admin-firebase';
 
 import Header from "./Header";
 import Home from "./Home";
 import Checkout from "./Checkout";
 import Login from "./Login";
+import AdminPage from "./AdminPage";
 import Payment from "./Payment";
 import Orders from "./Orders";
 import Shirts from "./Shirts";
 import Pants from "./Pants";
+import ProductList from "./ProductList";
+import ProductCreate from  "./ProductCreate";
+import ProductEdit from  "./ProductEdit";
 import { auth } from "../firebase";
 import { useStateValue } from "./StateProvider";
 import Accessories from "./Accessories";
 
+// Consider hiding in .env
 const promise = loadStripe(
   "pk_test_51JGmgNC9dXaIWjJJDXxn8PfbjurdgfyrFYnOLfVgs5sPSSTEfJmummsXJp8lxLzOxnOpV9PXHk6FWU43mS3Srl7Z00IhriqKOO"
 );
+
+const options = {
+  watch: ['products']
+}
+const dataProvider = FirebaseDataProvider(auth, options);
+const authProvider = FirebaseAuthProvider(auth, options);
 
 // <Header /> outside the <Switch> tags renders on all components
 const App = () => {
@@ -52,6 +69,16 @@ const App = () => {
     <Router>
       <div className="App">
         <Switch>
+          <Route path="/admin" exact>
+            {/* <AdminPage /> */}
+            <Admin dataProvider={dataProvider} authProvider={authProvider}>
+              <Resource name="products"
+               list={ProductList}
+               create={ProductCreate}
+               edit={ProductEdit}
+              />
+            </Admin>
+          </Route>
           <Route path="/orders" exact>
             <Header />
             <Orders />

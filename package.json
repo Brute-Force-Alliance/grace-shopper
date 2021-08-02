@@ -26,6 +26,8 @@
     "morgan": "^1.10.0",
     "pg": "^8.2.1",
     "react": "^16.13.1",
+    "react-admin": "^3.17.0",
+    "react-admin-firebase": "^3.2.24",
     "react-currency-format": "^1.0.0",
     "react-dom": "^16.13.1",
     "react-flip-move": "^3.0.4",
