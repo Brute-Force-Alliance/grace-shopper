@@ -42,8 +42,8 @@ const Header = () => {
             ``
           ) : (
             <div className="header_option">
-              <span className="header_optionLineOne">Returns</span>
-              <span className="header_optionLineTwo">& Orders</span>
+              <span className="header_optionLineOne">Order</span>
+              <span className="header_optionLineTwo">History</span>
             </div>
           )}
         </Link>
@@ -74,9 +74,9 @@ const Header = () => {
                 All Items
               </a>
               <div className="dropdown-content">
-                <a href="/shirts">Shirts</a>
-                <a href="/pants">Pants</a>
-                <a href="/accessories">Accessories</a>
+                <Link to="/shirts">Shirts</Link>
+                <Link to="/pants">Pants</Link>
+                <Link to="/accessories">Accessories</Link>
               </div>
             </li>
           </ul>

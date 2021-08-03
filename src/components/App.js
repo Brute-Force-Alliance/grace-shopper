@@ -16,6 +16,7 @@ import Header from "./Header";
 import Home from "./Home";
 import Checkout from "./Checkout";
 import Login from "./Login";
+import Register from "./Register";
 import AdminPage from "./AdminPage";
 import Payment from "./Payment";
 import Orders from "./Orders";
@@ -24,6 +25,8 @@ import Pants from "./Pants";
 import ProductList from "./ProductList";
 import ProductCreate from  "./ProductCreate";
 import ProductEdit from  "./ProductEdit";
+import UserList from "./UserList";
+import UserEdit from "./UserEdit";
 import { auth } from "../firebase";
 import { useStateValue } from "./StateProvider";
 import Accessories from "./Accessories";
@@ -77,6 +80,10 @@ const App = () => {
                create={ProductCreate}
                edit={ProductEdit}
               />
+              <Resource name="users"
+              list={UserList}
+              edit={UserEdit}
+              />
             </Admin>
           </Route>
           <Route path="/orders" exact>
@@ -85,6 +92,9 @@ const App = () => {
           </Route>
           <Route path="/login" exact>
             <Login />
+          </Route>
+          <Route path="/register" exact>
+            <Register />
           </Route>
           <Route path="/checkout" exact>
             <Header />

@@ -21,31 +21,31 @@ const Login = () => {
       .catch((error) => alert(error.message));
   };
 
-  const register = (e) => {
-    e.preventDefault();
-    // firebase register logic
+  // const register = (e) => {
+  //   e.preventDefault();
+  //   // firebase register logic
 
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((auth) => {
-        //successfully creates user with an email and password
-        console.log("user created id", auth.user.uid);
-        console.log("user created email", auth.user.email);
-        const collection = db.collection("users");
-        const userId = auth.user.uid;
+  //   auth
+  //     .createUserWithEmailAndPassword(email, password)
+  //     .then((auth) => {
+  //       //successfully creates user with an email and password
+  //       console.log("user created id", auth.user.uid);
+  //       console.log("user created email", auth.user.email);
+  //       const collection = db.collection("users");
+  //       const userId = auth.user.uid;
 
-        collection.doc(userId).set({
-          email: auth.user.email,
-          uid: userId,
-        });
-      })
-      .then(() => {
-        if (auth) {
-          history.push("/");
-        }
-      })
-      .catch((error) => alert(error.message));
-  };
+  //       collection.doc(userId).set({
+  //         email: auth.user.email,
+  //         uid: userId,
+  //       });
+  //     })
+  //     .then(() => {
+  //       if (auth) {
+  //         history.push("/");
+  //       }
+  //     })
+  //     .catch((error) => alert(error.message));
+  // };
 
   return (
     <div className="login">
@@ -87,7 +87,9 @@ const Login = () => {
           Interest-Based Ads Notice.
         </p>
 
-        <button onClick={register} className="login__registerButton">
+        <button onClick={() => {
+          history.push('/register')
+        }} className="login__registerButton">
           Create an account
         </button>
       </div>
