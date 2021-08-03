@@ -4,6 +4,8 @@ h3 {
   justify-content: center;
   background-color: #3c6e71;
   color: white;
+  padding: .5em;
+  margin-bottom: .5em;
 }
 
 .accessories_row {

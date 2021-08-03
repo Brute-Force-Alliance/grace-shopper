@@ -16,6 +16,10 @@
   margin-top: 8px;
 }
 
+.header > a {
+  margin-left: 2%;
+}
+
 .header_optionLineOne {
   font-size: 10px;
 }
@@ -38,8 +42,10 @@
 
 /*Text is aligned and center*/
 .header_nav {
+  margin-left: auto;
+  margin-right: 3%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .header_option {
