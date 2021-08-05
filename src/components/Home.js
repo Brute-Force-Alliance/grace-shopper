@@ -8,7 +8,7 @@ const useProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    db.collection("products").limit(7)
+    db.collection("products").limit(6)
       .get()
       .then((snapshot) => {
         const data = snapshot.docs.map((doc) => ({
