@@ -28,7 +28,7 @@ const Shirts = () => {
 
   return (
     <div>
-      <h3>Shirts</h3>
+      <h3 className='shirts_title'>Shirts</h3>
       <div className='shirts_container'>
         <div className="shirts_row">
           {products.map((product) => {
