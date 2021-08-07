@@ -1,6 +1,7 @@
 import "./Checkout.css";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { auth, db } from "../firebase"
 // import FlipMove from "react-flip-move"; Will review to add later, animation for removing items from cart
 
 import CheckoutProduct from "./CheckoutProduct";
@@ -9,7 +10,8 @@ import Subtotal from "./Subtotal";
 
 const Checkout = () => {
   const [{ basket, user }, dispatch] = useStateValue();
-
+  
+  
   return (
     <div className="checkout">
       <div className="checkout_left">

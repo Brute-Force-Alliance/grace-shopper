@@ -8,6 +8,10 @@
   max-width: 1500px;
 }
 
+.home_container {
+  max-width: 1000px;
+}
+
 .home_row {
   display: flex;
   justify-content: space-around;

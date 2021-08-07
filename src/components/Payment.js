@@ -51,12 +51,6 @@ const Payment = () => {
     }).then(({ paymentIntent }) => {
       // payment confirmation
       
-      console.log('paymentIntent id before: ', paymentIntent.id);
-      console.log('paymentIntent amount before: ', paymentIntent.amount);
-      console.log('paymentIntent created before: ', paymentIntent.created);
-      console.log('user uid: ', user.uid)
-      console.log('basket: ', basket);
-      
       db.collection('users')
         .doc(user?.uid)
         .collection('orders')
@@ -67,8 +61,6 @@ const Payment = () => {
             created: paymentIntent.created,
           })
 
-      console.log('paymentIntent id after: ', paymentIntent.id);
-      // console.log('newCollection: ', order);
 
       setSucceeded(true);
       setError(null);

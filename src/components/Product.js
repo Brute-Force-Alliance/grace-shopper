@@ -1,9 +1,19 @@
 import "./Product.css";
+
 import React from "react";
+import { Button } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import { useStateValue } from "./StateProvider";
+
+const useStyles = makeStyles({
+  button: {
+    fontSize: "8pt",
+  }
+});
 
 // props-destructured get passed from Home.js in <Product /> to Product.js
 const Product = (item) => {
+  const classes = useStyles();
   const { id, title, imageUrl, price, rating } = item;
   const [{ basket }, dispatch] = useStateValue();
 
@@ -38,7 +48,7 @@ const Product = (item) => {
         </div>
       </div>
       <img alt="" src={imageUrl} />
-      <button onClick={addToBasket}>Add to Cart</button>
+      <Button className={classes.button} size="medium" onClick={addToBasket}>Add to Cart</Button>
     </div>
   );
 };
