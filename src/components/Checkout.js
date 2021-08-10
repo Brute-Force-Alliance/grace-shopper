@@ -1,15 +1,16 @@
 import "./Checkout.css";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { auth, db } from "../firebase"
 // import FlipMove from "react-flip-move"; Will review to add later, animation for removing items from cart
 
 import CheckoutProduct from "./CheckoutProduct";
 import { useStateValue } from "./StateProvider";
 import Subtotal from "./Subtotal";
 
-const Checkout = () => {
+const Checkout = ({props}) => {
   const [{ basket, user }, dispatch] = useStateValue();
-
+  
   return (
     <div className="checkout">
       <div className="checkout_left">
@@ -19,7 +20,7 @@ const Checkout = () => {
           src="" //needs a landscape img or banner
         />
         <div>
-          <h3>Hello, {user?.email}</h3>
+          <h3>Hello, {props?.firstName} {props?.lastName}</h3>
           <h2 className="checkout_title">Your Shopping Cart</h2>
           {basket.map((item) => (
             <CheckoutProduct

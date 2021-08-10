@@ -1,7 +1,7 @@
 import "./App.css";
 import "./index.css";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
@@ -22,12 +22,14 @@ import Payment from "./Payment";
 import Orders from "./Orders";
 import Shirts from "./Shirts";
 import Pants from "./Pants";
+import Products from "./Products";
+import SingleProduct from "./SingleProduct";
 import ProductList from "./ProductList";
 import ProductCreate from  "./ProductCreate";
 import ProductEdit from  "./ProductEdit";
 import UserList from "./UserList";
 import UserEdit from "./UserEdit";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
 import { useStateValue } from "./StateProvider";
 import Accessories from "./Accessories";
 
@@ -45,18 +47,25 @@ const authProvider = FirebaseAuthProvider(auth, options);
 // <Header /> outside the <Switch> tags renders on all components
 const App = () => {
   const [state, dispatch] = useStateValue();
-
+  const [loggedUser, setLoggedUser] = useState();
+  
   useEffect(() => {
     //will only run once when app component loads
 
     auth.onAuthStateChanged((authUser) => {
-      console.log("THE USER IS >>>", authUser);
+      db.collection("users")
+        .doc(authUser.uid)
+        .get()
+        .then((snapshot) => {
+          const data = snapshot.data();
+          setLoggedUser(data)
+        })          
 
       if (authUser) {
         //the user just logged in / the user was logged in
         dispatch({
           type: "SET_USER",
-          user: authUser,
+          user: authUser     
         });
       } else {
         //the user is logged out
@@ -87,7 +96,7 @@ const App = () => {
             </Admin>
           </Route>
           <Route path="/orders" exact>
-            <Header />
+            <Header props={loggedUser} />
             <Orders />
           </Route>
           <Route path="/login" exact>
@@ -97,29 +106,37 @@ const App = () => {
             <Register />
           </Route>
           <Route path="/checkout" exact>
-            <Header />
-            <Checkout />
+            <Header props={loggedUser} />
+            <Checkout props={loggedUser} />
           </Route>
           <Route path="/payment" exact>
-            <Header />
+            <Header props={loggedUser} />
             <Elements stripe={promise}>
-              <Payment />
+              <Payment props={loggedUser} />
             </Elements>
           </Route>
-          <Route path="/shirts" exact>
-            <Header />
+          <Route path="/products" exact>
+            <Header props={loggedUser} />
+            <Products />
+          </Route>
+          <Route path="/products/:id" exact>
+            <Header props={loggedUser} />
+            <SingleProduct />
+          </Route>
+          <Route path="/tops" exact>
+            <Header props={loggedUser} />
             <Shirts />
           </Route>
-          <Route path="/pants" exact>
-            <Header />
+          <Route path="/bottoms" exact>
+            <Header props={loggedUser} />
             <Pants />
           </Route>
           <Route path="/accessories" exact>
-            <Header />
+            <Header props={loggedUser} />
             <Accessories />
           </Route>
           <Route path="/" exact>
-            <Header />
+            <Header props={loggedUser} />
             <Home />
           </Route>
         </Switch>

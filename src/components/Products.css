@@ -1,4 +1,4 @@
-.accessories {
+.products {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,7 +6,7 @@
   margin-right: auto;
 }
 
-.accessories_container {
+.products_container {
   max-width: 1500px;
   justify-content: center;
   align-items: center;
@@ -14,7 +14,7 @@
   margin-right: auto;
 }
 
-.accessories_title {
+.products_title {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,9 +24,10 @@
   margin-bottom: .5em;
 }
 
-.accessories_row {
+.product_row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 5px 5px 5px 5px;
   justify-items: center;
   align-items: center;
   z-index: 1;

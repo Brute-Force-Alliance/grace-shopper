@@ -26,12 +26,14 @@ const useProducts = () => {
 const Pants = () => {
   const products = useProducts();
   return (
-    <div>
-      <h3 className='pants_title'>Pants</h3>
-      <div className="pants_row">
-        {products.map((product) => {
-          return <Product {...product} />;
-        })}
+    <div className="pants">
+      <h3 className='pants_title'>Bottoms</h3>
+      <div className="pants_container">
+        <div className="pants_row">
+          {products.map((product) => {
+            return <Product {...product} />;
+          })}
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-.accessories {
+.single_product {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,7 +6,7 @@
   margin-right: auto;
 }
 
-.accessories_container {
+.single_products_container {
   max-width: 1500px;
   justify-content: center;
   align-items: center;
@@ -14,19 +14,21 @@
   margin-right: auto;
 }
 
-.accessories_title {
+.single_product_title {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #3c6e71;
+  font-size: 2em;
   color: white;
   padding: .5em;
   margin-bottom: .5em;
 }
 
-.accessories_row {
+.single_product_row {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+  gap: 5px 5px 5px 5px;
   justify-items: center;
   align-items: center;
   z-index: 1;

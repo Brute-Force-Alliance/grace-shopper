@@ -11,7 +11,7 @@ import { getBasketTotal } from "./reducer";
 import axios from "../axios";
 import { db } from "../firebase";
 
-const Payment = () => {
+const Payment = ({props}) => {
   const [{ basket, user }, dispatch] = useStateValue();
   const history = useHistory();
 
@@ -44,35 +44,25 @@ const Payment = () => {
     // Stripe handling
     e.preventDefault();
 
-    setProcessing(true); //Prevent multiple buy now clicks
+    setProcessing(true);  //Prevent multiple buy now clicks
 
-    const payload = await stripe
-      .confirmCardPayment(clientSecret, {
-        payment_method: {
-          card: elements.getElement(CardElement),
-        },
-      })
-      .then(({ paymentIntent }) => {
-        // payment confirmation
-
-        console.log("paymentIntent id before: ", paymentIntent.id);
-        console.log("paymentIntent amount before: ", paymentIntent.amount);
-        console.log("paymentIntent created before: ", paymentIntent.created);
-        console.log("user uid: ", user.uid);
-        console.log("basket: ", basket);
-
-        db.collection("users")
-          .doc(user?.uid)
-          .collection("orders")
-          .doc(paymentIntent.id)
-          .set({
+    const payload = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement)
+      }
+    }).then(({ paymentIntent }) => {
+      // payment confirmation
+      
+      db.collection('users')
+        .doc(user?.uid)
+        .collection('orders')
+        .doc(paymentIntent.id)
+        .set({
             basket: basket,
             amount: paymentIntent.amount,
             created: paymentIntent.created,
           });
 
-        console.log("paymentIntent id after: ", paymentIntent.id);
-        // console.log('newCollection: ', order);
 
         setSucceeded(true);
         setError(null);
@@ -103,9 +93,9 @@ const Payment = () => {
             <h3>Delivery Address</h3>
           </div>
           <div className="payment_address">
-            <p>{user?.email}</p>
-            <p>789 Broadway St</p>
-            <p>Nowhere, Alaska</p>
+            <p>{props?.firstName} {props?.lastName}</p>
+            <p>{props?.street}</p>
+            <p>{props?.city}, {props?.state} {props?.zipcode}</p>
           </div>
         </div>
         <div className="payment_section">

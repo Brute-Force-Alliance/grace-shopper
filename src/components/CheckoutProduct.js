@@ -1,6 +1,7 @@
 import "./CheckoutProduct.css";
 
 import React from "react";
+import { Button } from "@material-ui/core";
 
 import { StateProvider, useStateValue } from "./StateProvider";
 
@@ -33,7 +34,7 @@ const CheckoutProduct = (props) => {
             ))}
         </div>
         {!hidebutton && (
-          <button onClick={removeFromBasket}>Remove from Cart</button>
+          <Button onClick={removeFromBasket}>Remove from Cart</Button>
         )}
       </div>
     </div>

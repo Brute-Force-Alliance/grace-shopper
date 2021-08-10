@@ -39,7 +39,7 @@ const Home = () => {
             return (
               <Product
                 {...product}
-                // key={product.id}
+                key={product.id}
                 // title={product.name}
                 // image={product.imageUrl}
                 // price={product.price}
