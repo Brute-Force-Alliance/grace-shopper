@@ -17,6 +17,11 @@
   padding: 5px;
 }
 
+.checkoutProduct_info > button:hover {
+  background: #284b63;
+  border-color: #d9d9d9 #3c6e71 #353535;
+}
+
 .checkoutProduct_image {
   object-fit: contain;
   width: 180px;

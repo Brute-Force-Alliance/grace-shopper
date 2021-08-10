@@ -1,10 +1,9 @@
-import "./Product.css";
+import "./SingleProductCard.css";
 
 import React from "react";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useStateValue } from "./StateProvider";
-import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   button: {
@@ -13,9 +12,9 @@ const useStyles = makeStyles({
 });
 
 // props-destructured get passed from Home.js in <Product /> to Product.js
-const Product = (item) => {
+const SingleProductCard = (item) => {
   const classes = useStyles();
-  const { id, title, imageUrl, price, rating } = item;
+  const { id, title, imageUrl, price, rating, description } = item;
   const [{ basket }, dispatch] = useStateValue();
 
   const addToBasket = () => {
@@ -33,14 +32,14 @@ const Product = (item) => {
   };
 
   return (
-    <div className="product">
-      <div className="product_info">
+    <div className="single_product_card">
+      <div className="single_product_card_info">
         <p>{title}</p>
-        <p className="product_price">
+        <p className="single_product_card_price">
           <small>$</small>
           <strong>{price}</strong>
         </p>
-        <div className="product_rating">
+        <div className="single_product_card_rating">
           {Array(rating)
             .fill()
             .map((_, i) => (
@@ -48,12 +47,15 @@ const Product = (item) => {
             ))}
         </div>
       </div>
-      <Link to={`/products/${id}`} className="img_link">
+      <div className="single_product_card_desc">
+        {description}
+      </div>
+      <div>
         <img alt="" src={imageUrl} />
-      </Link>
+      </div>
       <Button className={classes.button} size="medium" onClick={addToBasket}>Add to Cart</Button>
     </div>
   );
 };
 
-export default Product;
+export default SingleProductCard;

@@ -23,8 +23,6 @@ const Register = () => {
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
         //successfully creates user with an email and password
-        console.log("user created id", auth.user.uid);
-        console.log("user created email", auth.user.email);
         const collection = db.collection("users");
         const userId = auth.user.uid;
 

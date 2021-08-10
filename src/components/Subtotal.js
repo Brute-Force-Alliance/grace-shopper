@@ -1,6 +1,9 @@
 import "./Subtotal.css";
+
 import React from "react";
 import CurrencyFormat from "react-currency-format";
+import { Button } from "@material-ui/core";
+
 import { useStateValue } from "./StateProvider";
 import { getBasketTotal } from "./reducer";
 import { useHistory } from "react-router-dom";
@@ -31,9 +34,9 @@ const Subtotal = () => {
         thousandSeparator={true}
         prefix={"$"}
       />
-      <button onClick={(e) => history.push("/payment")}>
+      <Button onClick={(e) => history.push("/payment")}>
         Proceed to Checkout
-      </button>
+      </Button>
     </div>
   );
 };

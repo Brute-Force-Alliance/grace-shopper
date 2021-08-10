@@ -1,21 +1,26 @@
 import "./Header.css";
 import React from "react";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 import { auth } from "../firebase";
 
-const Header = () => {
+const Header = ({props}) => {
   // Destructure state to {basket}
   const [{ basket, user }, dispatch] = useStateValue();
+  const history = useHistory();   
 
   const handleSignOut = () => {
     if (user) {
-      auth.signOut();
+      console.log('clicked!')
+      auth.signOut().then(() => {
+        history.go(0);
+      })
+      console.log('user: ', user)
     }
   };
-
   return (
+
     <div className="header">
       <Link to="/">
         <img
@@ -29,7 +34,7 @@ const Header = () => {
         <Link to={!user && "/login"}>
           <div onClick={handleSignOut} className="header_option">
             <span className="header_optionLineOne">
-              Hello {!user ? "Guest" : user.email}
+              Hello {!user ? "Guest" : `${props?.firstName} ${props?.lastName}`}
             </span>
             <span className="header_optionLineTwo">
               {user ? "Sign Out" : "Sign In"}
@@ -70,12 +75,12 @@ const Header = () => {
           <span className="header_optionLineTwo">Items</span> */}
           <ul>
             <li className="dropdown">
-              <a href="javascript:void(0)" className="dropbtn">
+              <Link to="/products" className="dropbtn">
                 All Items
-              </a>
+              </Link>
               <div className="dropdown-content">
-                <Link to="/shirts">Shirts</Link>
-                <Link to="/pants">Pants</Link>
+                <Link to="/tops">Tops</Link>
+                <Link to="/bottoms">Bottoms</Link>
                 <Link to="/accessories">Accessories</Link>
               </div>
             </li>

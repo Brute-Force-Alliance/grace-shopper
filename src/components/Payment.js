@@ -11,7 +11,7 @@ import { getBasketTotal } from "./reducer";
 import axios from "../axios";
 import { db } from "../firebase";
 
-const Payment = () => {
+const Payment = ({props}) => {
   const [{ basket, user }, dispatch] = useStateValue();
   const history = useHistory();
 
@@ -93,9 +93,9 @@ const Payment = () => {
             <h3>Delivery Address</h3>
           </div>
           <div className="payment_address">
-            <p>{user?.email}</p>
-            <p>789 Broadway St</p>
-            <p>Nowhere, Alaska</p>
+            <p>{props?.firstName} {props?.lastName}</p>
+            <p>{props?.street}</p>
+            <p>{props?.city}, {props?.state} {props?.zipcode}</p>
           </div>
         </div>
         <div className="payment_section">

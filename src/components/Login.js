@@ -16,7 +16,6 @@ const Login = () => {
       .signInWithEmailAndPassword(email, password)
       .then((auth) => {
         history.push("/");
-        console.log("logged in user -> ", auth.user.uid);
       })
       .catch((error) => alert(error.message));
   };
