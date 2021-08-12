@@ -41,6 +41,12 @@ const Header = ({props}) => {
             </span>
           </div>
         </Link>
+        <Link to="/about">
+            <div className="header_option">
+              <span className="header_optionLineOne">About</span>
+              <span className="header_optionLineTwo">Us</span>
+            </div>
+        </Link>
 
         <Link to="/orders">
           {!user ? (
@@ -57,22 +63,11 @@ const Header = ({props}) => {
           ``
         ) : (
           <div className="header_option">
-            <span className="header_optionLineOne">Returns</span>
-            <span className="header_optionLineTwo">& Orders</span>
+            <span className="header_optionLineOne">About</span>
+            <span className="header_optionLineTwo">Us</span>
           </div>
         )} */}
-
-        {!user ? (
-          ``
-        ) : (
-          <div className="header_option">
-            <span className="header_optionLineOne">Your</span>
-            <span className="header_optionLineTwo">BFA</span>
-          </div>
-        )}
         <div className="header_option">
-          {/* <span className="header_optionLineOne">Browse</span>
-          <span className="header_optionLineTwo">Items</span> */}
           <ul>
             <li className="dropdown">
               <Link to="/products" className="dropbtn">

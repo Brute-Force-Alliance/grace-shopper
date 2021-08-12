@@ -25,6 +25,10 @@
   flex: 0.2;
 }
 
+.items_total:visited {
+  color:#3c6e71;
+}
+
 .payment_address,
 .payment_items,
 .payment_details {

@@ -86,7 +86,7 @@ const Payment = ({props}) => {
     <div className="payment">
       <div className="payment_container">
         <h1>
-          Checkout (<Link to="/checkout">{basket?.length} items</Link>)
+          Checkout (<Link to="/checkout" className="items_total">{basket?.length} items</Link>)
         </h1>
         <div className="payment_section">
           <div className="payment_title">

@@ -23,13 +23,21 @@
   margin-bottom: 15px;
 }
 
+.img_container {
+  z-index: 1;
+  border-radius: 5px;
+  box-shadow: 5px 5px 9px rgb(107, 110, 110); 
+  margin-bottom: .75em;
+}
+
 .single_product_card > button {
   background: #3c6e71;
   border: 1px solid;
   margin-top: 10px;
   border-color: #d9d9d9 #3c6e71 #353535;
   color: white;
-  padding: 4px;
+  padding: 4px 20px;
+  font-size: 1em;
 }
 
 .single_product_card > button:hover {
@@ -48,6 +56,11 @@ button:active {
 .single_product_card_info {
   height: 100px;
   margin-bottom: 15px;
+}
+
+.title {  
+  font-size: 2em;
+  font-weight: 600;
 }
 
 .single_product_card_rating {
