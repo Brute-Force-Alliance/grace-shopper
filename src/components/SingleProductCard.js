@@ -34,7 +34,7 @@ const SingleProductCard = (item) => {
   return (
     <div className="single_product_card">
       <div className="single_product_card_info">
-        <p>{title}</p>
+        <p className="title">{title}</p>
         <p className="single_product_card_price">
           <small>$</small>
           <strong>{price}</strong>
@@ -47,11 +47,11 @@ const SingleProductCard = (item) => {
             ))}
         </div>
       </div>
+      <div className="img_container">
+        <img alt="" src={imageUrl} />
+      </div>
       <div className="single_product_card_desc">
         {description}
-      </div>
-      <div>
-        <img alt="" src={imageUrl} />
       </div>
       <Button className={classes.button} size="medium" onClick={addToBasket}>Add to Cart</Button>
     </div>

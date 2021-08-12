@@ -18,6 +18,7 @@ import Checkout from "./Checkout";
 import Login from "./Login";
 import Register from "./Register";
 import AdminPage from "./AdminPage";
+import About from "./About";
 import Payment from "./Payment";
 import Orders from "./Orders";
 import Shirts from "./Shirts";
@@ -98,6 +99,10 @@ const App = () => {
           <Route path="/orders" exact>
             <Header props={loggedUser} />
             <Orders />
+          </Route>
+          <Route path="/about" exact>
+            <Header props={loggedUser} />
+            <About />
           </Route>
           <Route path="/login" exact>
             <Login />
