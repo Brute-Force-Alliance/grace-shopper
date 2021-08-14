@@ -23,7 +23,7 @@ app.post('/payments/create', async (req, res) => {
   // From payments page
   const total = req.query.total;
 
-  console.log('Payment Request Received! For amount: ', total)
+  console.log('Payment Request Received! For amount: ', total);
 
   const paymentIntent = await stripe.paymentIntents.create({
     amount: total,
